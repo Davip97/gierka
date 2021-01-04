@@ -16,6 +16,7 @@ public int maxHealth = 5;
 
 private gameMaster gm;
 public GameObject Win;
+private bool won= false;
 
 
 
@@ -59,6 +60,11 @@ public GameObject Win;
     	if(curHealth <= 0)
     	{
     		Die(); //depresyjne troche :(
+    	}
+    	if(won)
+    	{
+    		Win.SetActive(true);
+    		Time.timeScale=0;
     	}
 
 
@@ -126,8 +132,7 @@ public GameObject Win;
 
     	if(col.CompareTag("END"))
     	{
-    		Debug.Log("Level won");
-    		Win.SetActive(true);
+    		won =!won;
 
     	}
     }
